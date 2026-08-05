@@ -1,7 +1,7 @@
 ---
 name: true402-token-safety
-description: Rug-check a Base token before trading — real sell simulation
-version: 1.0.0
+description: Rug-check a Base token before trading — real sell simulation plus its observed liquidity-removal history
+version: 1.1.0
 metadata:
   hermes:
     tags: [base, crypto, trading, safety, x402]
@@ -50,6 +50,28 @@ npx -y @true402.dev/rugcheck 0x… && <buy command>
   switch). Tell the user exactly which reasons were flagged.
 - `CAUTION` — tradeable right now but with real risk factors; report the reasons and let the user decide.
 - `OK` — no traps found on-chain at check time. Not financial advice; liquidity can still be pulled later.
+
+## Check what already happened to it (`--history`)
+
+The verdict above is **point-in-time**: it proves the token is sellable *right now*. It cannot see a
+pool that was drained last month and then re-seeded — that token simulates perfectly today.
+
+Add `--history` to also read true402's archive of **observed liquidity removals** on Base:
+
+```bash
+npx -y @true402.dev/rugcheck 0x<token-address> --history
+```
+
+It reports every removal event recorded against the token, and — the part that changes decisions —
+**the other tokens whose liquidity left in the same transaction**. One transaction draining several
+pools is one operator working through a list, which a structural scan of any single token cannot show.
+
+Two rules when relaying this to a user:
+
+- **"none observed" is not "clean."** The archive covers a specific block range, and the output says
+  when that range is partial. Absence of a recorded removal is not proof none happened.
+- It is **Base only**, because that is the chain true402 archives. On `--chain ethereum` or `bsc` the
+  flag says so and is skipped rather than printing an empty result that reads like a pass.
 
 ## Unlimited checks (optional, paid)
 
