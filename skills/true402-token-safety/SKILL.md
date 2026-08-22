@@ -105,7 +105,7 @@ curl -X POST https://true402.dev/api/v1/base/address-safety -H 'content-type: ap
 
 ## The whole catalog as MCP tools
 
-Hermes connects to any MCP server. For all 28 true402 stalls (token safety, DeFi yields, prediction
+Hermes connects to any MCP server. For all 32 true402 stalls (token safety, DeFi yields, prediction
 markets, screenshots, SEO audit, web extraction, LLM inference…) rather than just this check, add:
 
 ```bash
