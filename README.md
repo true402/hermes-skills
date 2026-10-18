@@ -19,11 +19,11 @@ hermes skills install true402/hermes-skills/true402-token-safety
 
 Free daily checks, no wallet and no API key. Heavy use pays per call over
 [x402](https://x402.org) (~$0.005–0.01 in USDC on Base); the client signs locally and refuses any
-single charge above $0.10.
+single charge above $0.25.
 
 ## Want the whole catalog instead?
 
-Hermes connects to any MCP server. This gives Hermes all 17 true402 stalls — token safety, DeFi
+Hermes connects to any MCP server. This gives Hermes all 33 true402 stalls — token safety, DeFi
 yields, prediction markets, screenshots, SEO/GEO audit, web extraction, LLM inference — as tools:
 
 ```bash
