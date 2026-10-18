@@ -28,7 +28,7 @@ one verdict.
 Run:
 
 ```bash
-npx -y @true402.dev/rugcheck 0x<token-address>
+npx -y @true402.dev/rugcheck@1.3.4 0x<token-address>
 ```
 
 **No wallet, no signup, no API key.** The first few checks each day are free, and they return the same
@@ -41,7 +41,7 @@ on-chain reasons (e.g. "sell reverts in simulation", "ownership is not renounced
 check, `2` when the free trial is used up and no key is set. Treat any non-zero as "do not buy":
 
 ```bash
-npx -y @true402.dev/rugcheck 0x… && <buy command>
+npx -y @true402.dev/rugcheck@1.3.4 0x… && <buy command>
 ```
 
 ## Interpreting the verdict
@@ -59,7 +59,7 @@ pool that was drained last month and then re-seeded — that token simulates per
 Add `--history` to also read true402's archive of **observed liquidity removals** on Base:
 
 ```bash
-npx -y @true402.dev/rugcheck 0x<token-address> --history
+npx -y @true402.dev/rugcheck@1.3.4 0x<token-address> --history
 ```
 
 It reports every removal event recorded against the token, and — the part that changes decisions —
@@ -85,6 +85,8 @@ protocol (~$0.005–0.01).
   amount; the key itself is never transmitted.
 - **Hard $0.25 cap per call.** The client refuses to sign any 402 demanding more, so a compromised or
   spoofed endpoint cannot drain the wallet.
+- **Pinned version.** Every command names an exact release (`@true402.dev/rugcheck@1.3.4`), so the
+  code that sees `PAYER_PRIVATE_KEY` is the reviewed release, not whatever npm serves as latest today.
 - **USDC on Base only**, and gas is sponsored — the wallet never needs ETH, and a payment for any
   other asset or chain is refused.
 - Never print, echo, or log the key. If the trial is exhausted and no key is set, the CLI prints
@@ -109,7 +111,7 @@ Hermes connects to any MCP server. For all 33 true402 stalls (token safety, DeFi
 markets, screenshots, SEO audit, web extraction, LLM inference…) rather than just this check, add:
 
 ```bash
-npx -y @true402.dev/mcp-server
+npx -y @true402.dev/mcp-server@1.3.1
 ```
 
 Full catalog: https://true402.dev/api/v1/services · OpenAPI: https://true402.dev/openapi.json ·
