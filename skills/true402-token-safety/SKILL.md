@@ -1,7 +1,7 @@
 ---
 name: true402-token-safety
 description: Rug-check a Base token before trading — real sell simulation plus its observed liquidity-removal history
-version: 1.1.0
+version: 1.1.1
 metadata:
   hermes:
     tags: [base, crypto, trading, safety, x402]
@@ -116,6 +116,20 @@ npx -y @true402.dev/mcp-server@1.3.1
 
 Full catalog: https://true402.dev/api/v1/services · OpenAPI: https://true402.dev/openapi.json ·
 Integrations: https://true402.dev/integrations
+
+## Make it automatic (Hermes plugin)
+
+This skill works when the agent remembers to follow it. To make the check unskippable, install the
+**true402 swap guard** plugin: one `pre_tool_call` hook checks every tool call that buys a token
+(terminal commands, MCP tools, plugin tools) and blocks the trade when the token is a honeypot or a
+rug in progress. A sale is never blocked, and a token that cannot be checked passes by default.
+
+```bash
+hermes plugins install true402/hermes-swap-guard/true402_swap_guard --enable
+```
+
+Same free daily checks; paid checks use a separate `TRUE402_PAYER_PRIVATE_KEY` secret and are capped
+at $0.02 each and 50 a day. Source: https://github.com/true402/hermes-swap-guard
 
 ## For the human in the loop
 
