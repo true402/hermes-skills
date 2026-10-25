@@ -27,7 +27,7 @@ Hermes connects to any MCP server. This gives Hermes all 33 true402 stalls — t
 yields, prediction markets, screenshots, SEO/GEO audit, web extraction, LLM inference — as tools:
 
 ```bash
-npx -y @true402.dev/mcp-server@1.3.1
+npx -y @true402.dev/mcp-server@1.3.2
 ```
 
 The MCP server discovers stalls from the live catalog, so new ones appear without an update.
