@@ -1,7 +1,7 @@
 ---
 name: true402-token-safety
 description: Rug-check a Base token before trading — real sell simulation plus its observed liquidity-removal history
-version: 1.1.1
+version: 1.1.2
 metadata:
   hermes:
     tags: [base, crypto, trading, safety, x402]
@@ -111,7 +111,7 @@ Hermes connects to any MCP server. For all 33 true402 stalls (token safety, DeFi
 markets, screenshots, SEO audit, web extraction, LLM inference…) rather than just this check, add:
 
 ```bash
-npx -y @true402.dev/mcp-server@1.3.1
+npx -y @true402.dev/mcp-server@1.3.2
 ```
 
 Full catalog: https://true402.dev/api/v1/services · OpenAPI: https://true402.dev/openapi.json ·
