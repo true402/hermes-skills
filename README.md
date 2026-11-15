@@ -23,7 +23,7 @@ single charge above $0.25.
 
 ## Want the whole catalog instead?
 
-Hermes connects to any MCP server. This gives Hermes all 34 true402 stalls — token safety, DeFi
+Hermes connects to any MCP server. This gives Hermes all 35 true402 stalls — token safety, DeFi
 yields, prediction markets, screenshots, SEO/GEO audit, web extraction, LLM inference — as tools:
 
 ```bash
